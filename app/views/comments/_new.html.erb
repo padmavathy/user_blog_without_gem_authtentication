@@ -1,0 +1,32 @@
+<%= form_for([@article, @comment]) do |f| %>
+
+    <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% @comment.errors.full_messages.each do |msg| %>
+                <li>
+                  <%= msg %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <%= f.label :comment, class: "control-label col-sm-2" %>
+          <div class="col-sm-10">
+            <%= f.text_area :comment,class: "form-control" %>
+          </div>
+        </div>
+        <br/><br/>
+        <%= f.hidden_field :user_id, :value => @user_id%>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <br/>
+                <%= f.submit "Save", class: "btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

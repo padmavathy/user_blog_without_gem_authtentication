@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th><h4>Details of Article</h4></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>
+            <h5 class="panel-title">
+              Title
+            </h5>
+          </td>
+          <td>
+            <%= article.title%>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5 class="panel-title">
+              Article Body
+            </h5>
+          </td>
+          <td>
+            <%= article.body%>
+          </td>
+        </tr>
+      </table>
+     <% unless @comments.blank? %>
+      <table class="table table-striped">
+        <tr>
+          <th><h4>Comments List</h4></th>
+          <th></th>
+        </tr>
+       <% @comments.each do |com| %>
+        <tr>
+          <td>
+            <%= com.user.to_s%> commented <p id="user_comment"><%= com.comment%></p>
+          </td>
+        </tr>
+       <% end %>
+      </table>
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<%= render partial: 'dialog'%>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= @user.to_s%> Articles
+    <div class="pull-right">
+      <div class="glyphicon glyphicon-plus"></div>
+      <%= link_to 'New Article', new_user_article_path %>
+      <div class="glyphicon glyphicon-plus"></div>
+      <%= link_to 'Add Cover Photo', edit_user_path(@user.id) %>
+    </div>
+
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @articles.each do |article| %>
+          <tr>
+            <td>
+              <%= article.title %>
+            </td>
+            <td>
+              <div class="glyphicon glyphicon-eye-open"></div>
+              <%= link_to 'Show', "/users/#{@user.id}/articles/#{article.id}", :remote => true %>
+            </td>
+            <td>
+              <div class="glyphicon glyphicon-edit"></div>
+              <%= link_to 'Edit', "/users/#{@user.id}/articles/#{article.id}/edit" %>
+            </td>
+            <td>
+              <div class="glyphicon glyphicon-remove"></div>
+              <%= link_to 'Destroy', "/users/#{@user.id}/articles/#{article.id}", :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+            </td>
+            <td>
+              <div class="glyphicon glyphicon-tasks"></div>
+              <%= link_to 'Add Comments', "/articles/#{article.id}/comments/new?user_id=#{@user.id}", :remote => true %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

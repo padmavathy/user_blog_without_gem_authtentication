@@ -1,0 +1,11 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bgimage {
+  background-image: image-url('bg.jpg');
+  background-size: 100% auto;
+}
+.bgimage-inside {
+  padding-top: 45%; /* this is actually (426/1140)*100 */
+}

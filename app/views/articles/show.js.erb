@@ -1,0 +1,4 @@
+$('#dialog h3').html("<i class='glyphicon'></i> Article Details");
+$(".modal-body").html("<%= escape_javascript(render partial: 'article', locals: { article: @article} ) %>");
+
+$('#dialog').modal("show");

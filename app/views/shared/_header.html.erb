@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <!--/ place your website logo here
+      -->
+      <a class="navbar-brand" href="<%= root_path %>">
+        <div class="glyphicon glyphicon-education"></div>
+        User Blog
+      </a>
+    </div>
+    <div class="pull-right twitter_btn">
+          <div id="user_header">
+            <% if current_user %>
+                Logged in as <%= current_user.to_s %>.
+                <%= link_to "Log Out", logout_path, class: "btn btn-primary " %>
+            <% else %>
+                <%= link_to "Sign Up", signup_path, class: "btn btn-primary " %>
+                <%= link_to "Log In", login_path ,class: "btn btn-primary " %>
+            <% end %>
+         </div>
+  </div>
+</nav>
