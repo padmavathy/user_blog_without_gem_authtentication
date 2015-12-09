@@ -1,0 +1,1 @@
+# user_blog_without_gem_authtentication
